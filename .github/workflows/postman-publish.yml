@@ -1,0 +1,55 @@
+
+name: Fission QA - Validate and Publish
+
+on:
+  pull_request:
+    branches:
+      - main
+
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: fission-postman-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  validate-and-publish:
+    name: Validate Postman resources
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Postman CLI
+        run: |
+          curl -fsSL "https://dl-cli.pstmn.io/install/unix.sh" | sh
+
+      - name: Verify CLI installation
+        run: postman --version
+
+      - name: Validate Postman resources
+        run: postman workspace lint --fail-severity error
+
+      - name: Authenticate with Postman
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        env:
+          POSTMAN_API_KEY: ${{ secrets.POSTMAN_API_KEY }}
+        run: |
+          if [ -z "$POSTMAN_API_KEY" ]; then
+            echo "POSTMAN_API_KEY secret is missing"
+            exit 1
+          fi
+          postman login --with-api-key "$POSTMAN_API_KEY"
+
+      - name: Publish to Fission QA Cloud
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        run: postman workspace push --yes
