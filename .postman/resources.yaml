@@ -6,4 +6,11 @@ cloudResources:
   collections:
     ../postman/collections/Fission QA Master.postman_collection.json: 43872952-2ac899f5-8e3e-4360-9057-7233c1b3d1d3
   globals:
-    ../postman/globals/workspace.postman_globals.json: d793395e-ab93-437d-8a84-c1bbb712563c
+    ../postman/globals/workspace.postman_globals.json: d793395e-ab93-437d-8a84-c1bbb712563c  
+  environments:
+    "../postman/environments/CI Dev Environment (Base URL) Copy.environment.json": 43872952-b278c44f-49a5-418f-b2f4-133d5654d0d3
+    "../postman/environments/CI-DEV - TEAM Fission.environment.json": 43872952-77a9c219-10d8-4e95-813f-e968153e1a74
+    "../postman/environments/Staging Environment (Base URL) Copy.environment.json": 43872952-72acfbee-99c2-4918-8a5c-a64c3f974251
+    "../postman/environments/staging Copy.environment.json": 43872952-83109d92-2d53-4c84-bf68-d432b711efe5
+
+
