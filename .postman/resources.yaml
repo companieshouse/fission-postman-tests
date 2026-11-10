@@ -1,2 +1,9 @@
 workspace:
   id: 944f978f-1f60-4517-be5d-fadeffb731ee
+
+# Each entry here maps a local resource to one or more corresponding objects in Postman Cloud
+cloudResources:
+  collections:
+    ../postman/collections/Fission QA Master.postman_collection.json: 43872952-2ac899f5-8e3e-4360-9057-7233c1b3d1d3
+  globals:
+    ../postman/globals/workspace.postman_globals.json: d793395e-ab93-437d-8a84-c1bbb712563c
