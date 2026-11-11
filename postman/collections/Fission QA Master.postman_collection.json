@@ -711,35 +711,12 @@
             {
               "listen": "prerequest",
               "script": {
-                "id": "2fc6d4a3-ee38-41fc-8a6d-e721c838a171",
-                "exec": [
-                  "const templateName = pm.request.headers.get(\"templateName\");",
-                  "const assetID = pm.request.headers.get(\"assetID\");",
-                  "const accept = pm.request.headers.get(\"Accept\");",
-                  "const contentType = pm.request.headers.get(\"Content-Type\");",
-                  "const location = pm.request.headers.get(\"Location\");",
-                  "",
-                  "pm.variables.set(\"templateName\", templateName);",
-                  "pm.variables.set(\"assetID\", assetID);",
-                  "pm.variables.set(\"accept\", accept);",
-                  "pm.variables.set(\"contentType\", contentType);",
-                  "pm.variables.set(\"location\", location);"
-                ],
                 "type": "text/javascript",
                 "packages": {},
-                "requests": {}
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "id": "7621e88d-761e-4dd3-8aa5-5b3d7c2f7ec9",
+                "requests": {},
                 "exec": [
-                  ""
-                ],
-                "type": "text/javascript",
-                "packages": {},
-                "requests": {}
+                  "const templateName = pm.request.headers.get(\"templateName\");\nconst assetID = pm.request.headers.get(\"assetID\");\nconst accept = pm.request.headers.get(\"Accept\");\nconst contentType = pm.request.headers.get(\"Content-Type\");\nconst location = pm.request.headers.get(\"Location\");\n\npm.variables.set(\"templateName\", templateName);\npm.variables.set(\"assetID\", assetID);\npm.variables.set(\"accept\", accept);\npm.variables.set(\"contentType\", contentType);\npm.variables.set(\"location\", location);"
+                ]
               }
             }
           ],
@@ -752,54 +729,46 @@
             "header": [
               {
                 "key": "Authorization",
-                "value": "mwqf9RxdwFeCreo-kcbCIk60lC6Ax35qbNsUZah0",
-                "type": "text"
+                "value": "mwqf9RxdwFeCreo-kcbCIk60lC6Ax35qbNsUZah0"
               },
               {
                 "key": "ERIC-Identity",
-                "value": "tester",
-                "type": "text"
+                "value": "tester"
               },
               {
                 "key": "ERIC-Authorised-Key-Roles",
-                "value": "*",
-                "type": "text"
+                "value": "*"
               },
               {
                 "key": "ERIC-Identity-Type",
-                "value": "tester",
-                "type": "text"
+                "value": "tester"
               },
               {
                 "key": "ERIC-Authorised-Token-Permissions",
-                "value": "",
-                "type": "text",
-                "disabled": true
+                "value": ""
               },
               {
                 "key": "templateName",
-                "value": "ds01.html",
-                "type": "text"
+                "value": "ds01.html"
               },
               {
                 "key": "assetID",
-                "value": "test",
-                "type": "text"
+                "value": "test"
               },
               {
                 "key": "Accept",
-                "value": "application/pdf",
-                "type": "text"
+                "value": "application/pdf"
               },
               {
                 "key": "location",
-                "value": "development-eu-west-2.dissolutions-pdf.ch.gov.uk",
-                "type": "text"
+                "value": "development-eu-west-2.dissolutions-pdf.ch.gov.uk"
               }
             ],
             "body": {
               "mode": "file",
-              "file": {}
+              "file": {
+                "src": "postman-cloud:///1f18b23c-65a5-4100-92b0-146191cb86ea"
+              }
             },
             "url": {
               "raw": "https://private-api.cidev.aws.chdev.org/document-render",
@@ -1921,40 +1890,34 @@
               },
               "response": [
                 {
-                  "id": "95343150-c39b-44c4-b916-0e330a09e7bb",
+                  "id": "364eeb1c-99bc-4f11-be18-b69783ca8803",
                   "name": "POST /document-render - Unsupported Accept",
                   "originalRequest": {
                     "method": "POST",
                     "header": [
                       {
                         "key": "Authorization",
-                        "value": "{{auth_api_key}}",
-                        "type": "text"
+                        "value": "{{auth_api_key}}"
                       },
                       {
                         "key": "Accept",
-                        "value": "application/xml",
-                        "type": "text"
+                        "value": "application/xml"
                       },
                       {
                         "key": "Content-Type",
-                        "value": "text/html",
-                        "type": "text"
+                        "value": "text/html"
                       },
                       {
                         "key": "assetID",
-                        "value": "company-report",
-                        "type": "text"
+                        "value": "company-report"
                       },
                       {
                         "key": "templateName",
-                        "value": "company-report.html",
-                        "type": "text"
+                        "value": "company-report.html"
                       },
                       {
                         "key": "X-Request-Id",
-                        "value": "{{$guid}}",
-                        "type": "text"
+                        "value": "{{$guid}}"
                       }
                     ],
                     "body": {
@@ -1976,16 +1939,11 @@
                       ]
                     }
                   },
+                  "status": "OK",
                   "code": 400,
-                  "_postman_previewlanguage": "Text",
+                  "_postman_previewlanguage": "text",
                   "header": [],
-                  "cookie": [
-                    {
-                      "expires": "Invalid Date",
-                      "domain": "",
-                      "path": ""
-                    }
-                  ],
+                  "cookie": [],
                   "body": ""
                 }
               ]
@@ -2066,35 +2024,30 @@
               },
               "response": [
                 {
-                  "id": "6741a40f-b3e2-472c-8c44-79da0706acb1",
+                  "id": "cd423b7f-1f83-4507-8f50-6162b6b3f4b6",
                   "name": "POST /document-render - Missing assetID header",
                   "originalRequest": {
                     "method": "POST",
                     "header": [
                       {
                         "key": "Authorization",
-                        "value": "{{auth_api_key}}",
-                        "type": "text"
+                        "value": "{{auth_api_key}}"
                       },
                       {
                         "key": "Accept",
-                        "value": "text/html",
-                        "type": "text"
+                        "value": "text/html"
                       },
                       {
                         "key": "Content-Type",
-                        "value": "text/html",
-                        "type": "text"
+                        "value": "text/html"
                       },
                       {
                         "key": "templateName",
-                        "value": "company-report.html",
-                        "type": "text"
+                        "value": "company-report.html"
                       },
                       {
                         "key": "X-Request-Id",
-                        "value": "{{$guid}}",
-                        "type": "text"
+                        "value": "{{$guid}}"
                       }
                     ],
                     "body": {
@@ -2116,16 +2069,11 @@
                       ]
                     }
                   },
+                  "status": "OK",
                   "code": 404,
-                  "_postman_previewlanguage": "Text",
+                  "_postman_previewlanguage": "text",
                   "header": [],
-                  "cookie": [
-                    {
-                      "expires": "Invalid Date",
-                      "domain": "",
-                      "path": ""
-                    }
-                  ],
+                  "cookie": [],
                   "body": ""
                 }
               ]
@@ -3537,7 +3485,9 @@
             "header": [],
             "body": {
               "mode": "file",
-              "file": {}
+              "file": {
+                "src": "/Users/oliveringleby/Documents/Example_accounts/fortlutonco.xml"
+              }
             },
             "url": {
               "raw": "https://xml.animal.orctel.internal/v1-0/xmlgw/Gateway",
@@ -3562,22 +3512,23 @@
           "id": "d997b2c4-8f14-4ef2-a965-99af437b3966",
           "protocolProfileBehavior": {
             "strictSSL": false,
-            "disabledSystemHeaders": {
-              "content-type": true
-            }
+            "disabledSystemHeaders": [
+              "content-type"
+            ]
           },
           "request": {
             "method": "POST",
             "header": [
               {
                 "key": "Content-Type",
-                "value": "text/xml",
-                "type": "text"
+                "value": "text/xml"
               }
             ],
             "body": {
               "mode": "file",
-              "file": {}
+              "file": {
+                "src": "/Users/oingleby/Documents/2019_2021_2022_2023/testData/fortlutonco.xml"
+              }
             },
             "url": {
               "raw": "https://xml.kermit.orctel.internal/v1-0/xmlgw/Gateway",
@@ -3602,22 +3553,23 @@
           "id": "091213dc-b9d5-4e12-b554-7a2c0e0fd48f",
           "protocolProfileBehavior": {
             "strictSSL": false,
-            "disabledSystemHeaders": {
-              "content-type": true
-            }
+            "disabledSystemHeaders": [
+              "content-type"
+            ]
           },
           "request": {
             "method": "POST",
             "header": [
               {
                 "key": "Content-Type",
-                "value": "text/xml",
-                "type": "text"
+                "value": "text/xml"
               }
             ],
             "body": {
               "mode": "file",
-              "file": {}
+              "file": {
+                "src": "/Users/oingleby/Documents/2019_2021_2022_2023/testData/fortlutonco.xml"
+              }
             },
             "url": {
               "raw": "https://xml.kermit.orctel.internal/v1-0/xmlgw/Gateway",
@@ -3648,7 +3600,9 @@
             "header": [],
             "body": {
               "mode": "file",
-              "file": {}
+              "file": {
+                "src": "/Users/oliveringleby/Documents/Welsh-tax/fortlunco.xml"
+              }
             },
             "url": {
               "raw": "https://xmlgw-stg-aws.companieshouse.gov.uk/v1-0/xmlgw/Gateway",
@@ -3679,7 +3633,9 @@
             "header": [],
             "body": {
               "mode": "file",
-              "file": {}
+              "file": {
+                "src": "/Users/oliveringleby/Documents/Welsh-tax/fortlunco.xml"
+              }
             },
             "url": {
               "raw": "https://xmlgw-stg-aws.companieshouse.gov.uk/v1-0/xmlgw/Gateway",
@@ -5258,37 +5214,37 @@
   ],
   "variable": [
     {
-      "id": "bc5b1367-f1db-4c6f-aa49-79f5c559a566",
+      "id": "859f7b09-506c-4644-ae27-79d20bdc5913",
       "key": "environment",
       "value": ""
     },
     {
-      "id": "7ca370db-5c96-4b33-881d-84f414ea7164",
+      "id": "037dc263-7e9d-45b6-bb66-6d10d9546520",
       "key": "auth_api_key",
       "value": ""
     },
     {
-      "id": "98fc796c-20de-4f30-900b-1e28fc5c939c",
+      "id": "e910523a-2b5d-4085-897c-3ee90926d013",
       "key": "assetPath",
       "value": ""
     },
     {
-      "id": "7ec538c2-050a-434c-8899-1d0e18e70248",
+      "id": "210003e5-df41-4b11-81d6-0d7a24703bbe",
       "key": "typePath",
       "value": ""
     },
     {
-      "id": "c24bf06a-056f-4d14-8b0a-25c005c2f1ac",
+      "id": "03051835-7814-4e8e-9bac-a03e03bd2d91",
       "key": "filePath",
       "value": ""
     },
     {
-      "id": "269deb26-21e9-4013-9827-46d82e18fed5",
+      "id": "6e045041-d322-49f1-a725-1855bf714498",
       "key": "document_id",
       "value": ""
     },
     {
-      "id": "836ca31a-6119-4612-b7f3-1ef55e2b3216",
+      "id": "8b6c57da-a20e-41ea-950c-392f002067c0",
       "key": "transaction_id",
       "value": ""
     }
