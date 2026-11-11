@@ -11,7 +11,7 @@ Git-controlled API collections, environments and test scripts for **Team Fission
 | GitHub repository | [companieshouse/fission-postman-tests](https://github.com/companieshouse/fission-postman-tests) |
 | Pull requests | [Open PRs](https://github.com/companieshouse/fission-postman-tests/pulls) |
 | Publishing workflow and logs | [GitHub Actions](https://github.com/companieshouse/fission-postman-tests/actions) |
-| Postman workspace | [Fission QA](https://go.postman.co/workspace/Fission-QA-944f978f-1f60-4517-be5d-fadeffb731ee/overview) |
+| Postman workspace | [Fission QA](https://companies-house.postman.co/workspace/944f978f-1f60-4517-be5d-fadeffb731ee) |
 | Workspace ID | `944f978f-1f60-4517-be5d-fadeffb731ee` |
 | CI/CD configuration | `.github/workflows/postman-publish.yml` |
 | Local-to-Cloud mappings | `.postman/resources.yaml` |
