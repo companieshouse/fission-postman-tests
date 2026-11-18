@@ -3472,7 +3472,7 @@
       }
     },
     {
-      "name": "Welsh Tax (from Lead Tester Aardvark whilst investigating filing accounts)",
+      "name": "Welsh Tax",
       "item": [
         {
           "name": "UKSEF to animal",
@@ -3657,7 +3657,7 @@
         }
       ],
       "id": "e050b6c2-aa07-41e7-8b66-2d89bb8e8640",
-      "description": "\"So when you send a set of accounts you send it for a given year. In CHS it will update the year that your sending once you've given it the chance to come back to CHS, so the next one you send will also pass. If you give it enough time. If you send the file over the XMLGW it's essentially sending a paper form, so you need to go in and edit the date fields if you have to send a subsequent one. It's a fiddly process and prone to mistakes\"\n\n\"CHIPS wipes every night in CIDEV, so I have files on hand to send because most of the time I only need to send one file\""
+      "description": "Obtained from Lead Tester Aardvark whilst investigating filing accounts.\n\n\"So when you send a set of accounts you send it for a given year. In CHS it will update the year that your sending once you've given it the chance to come back to CHS, so the next one you send will also pass. If you give it enough time. If you send the file over the XMLGW it's essentially sending a paper form, so you need to go in and edit the date fields if you have to send a subsequent one. It's a fiddly process and prone to mistakes\"\n\n\"CHIPS wipes every night in CIDEV, so I have files on hand to send because most of the time I only need to send one file\""
     },
     {
       "name": "document.api.ch.gov.uk",
