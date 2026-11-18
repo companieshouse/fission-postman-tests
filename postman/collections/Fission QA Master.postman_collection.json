@@ -1891,7 +1891,7 @@
               "response": [
                 {
                   "id": "364eeb1c-99bc-4f11-be18-b69783ca8803",
-                  "name": "POST /document-render - Unsupported Accept",
+                  "name": "POST - Unsupported Accept",
                   "originalRequest": {
                     "method": "POST",
                     "header": [
@@ -2025,7 +2025,7 @@
               "response": [
                 {
                   "id": "cd423b7f-1f83-4507-8f50-6162b6b3f4b6",
-                  "name": "POST /document-render - Missing assetID header",
+                  "name": "POST - Missing assetID header",
                   "originalRequest": {
                     "method": "POST",
                     "header": [
@@ -2151,7 +2151,7 @@
               "response": [
                 {
                   "id": "05a5dcd8-079e-43a8-855b-9647b5ed7c5a",
-                  "name": "POST /document-render - Missing templateName header",
+                  "name": "POST - Missing templateName header",
                   "originalRequest": {
                     "method": "POST",
                     "header": [
@@ -2294,7 +2294,7 @@
               "response": [
                 {
                   "id": "36e8c849-6588-4cd9-81c1-5e89cb317bd6",
-                  "name": "POST /document-render - Malformed JSON body",
+                  "name": "POST - Malformed JSON body",
                   "originalRequest": {
                     "method": "POST",
                     "header": [
