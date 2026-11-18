@@ -1,6 +1,6 @@
 {
   "id": "b278c44f-49a5-418f-b2f4-133d5654d0d3",
-  "name": "CI Dev Environment (Base URL) Copy",
+  "name": "CI Dev Environment (Base URL)",
   "values": [
     {
       "key": "base_url",
