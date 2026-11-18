@@ -4,9 +4,15 @@ workspace:
 # Each entry here maps a local resource to one or more corresponding objects in Postman Cloud
 cloudResources:
   collections:
-    ../postman/collections/Fission QA Master.postman_collection.json: 43872952-2ac899f5-8e3e-4360-9057-7233c1b3d1d3
+    "../postman/collections/Fission QA Master.postman_collection.json": 43872952-2ac899f5-8e3e-4360-9057-7233c1b3d1d3
+    "../postman/collections/Integration Testing.postman_collection.json": 43872952-fba962c3-d432-46aa-a3a0-c4935c471ee0
+    "../postman/collections/Mock Data Generation.postman_collection.json": 43872952-d73e9176-81f7-4c00-9fcc-a7a59bba1b0c
+    "../postman/collections/Intro to Writing Tests.postman_collection.json": 43872952-d4813acc-a816-4692-9ae7-f06d9439fed6
+    "../postman/collections/Performance Testing.postman_collection.json": 43872952-d6720034-2677-4273-900b-9a71a8c1dd50
+    "../postman/collections/Regression Testing.postman_collection.json": 43872952-4315dfd7-5116-4a6d-a661-4575e79546a5
+    "../postman/collections/Contract Testing.postman_collection.json": 43872952-1071ef38-da06-4b71-af1e-85520bf807c0
   globals:
-    ../postman/globals/workspace.postman_globals.json: d793395e-ab93-437d-8a84-c1bbb712563c  
+    "../postman/globals/workspace.postman_globals.json": d793395e-ab93-437d-8a84-c1bbb712563c
   environments:
     "../postman/environments/CI Dev Environment (Base URL).environment.json": 43872952-b278c44f-49a5-418f-b2f4-133d5654d0d3
     "../postman/environments/CI-DEV - TEAM Fission.environment.json": 43872952-77a9c219-10d8-4e95-813f-e968153e1a74
