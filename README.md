@@ -61,8 +61,8 @@ fission-postman-tests/
 │   │   └── Fission QA Master.postman_collection.json
 │   ├── environments/
 │   │   ├── CI-DEV - TEAM Fission.environment.json
-│   │   ├── CI Dev Environment (Base URL) Copy.environment.json
-│   │   ├── Staging Environment (Base URL) Copy.environment.json
+│   │   ├── CI Dev Environment (Base URL).environment.json
+│   │   ├── Staging Environment (Base URL).environment.json
 │   │   └── staging Copy.environment.json
 │   └── globals/
 │       └── workspace.postman_globals.json
