@@ -1806,7 +1806,7 @@
           "name": "Document Render - Negative",
           "item": [
             {
-              "name": "POST /document-render - Unsupported Accept",
+              "name": "POST document-render - Unsupported Accept",
               "event": [
                 {
                   "listen": "test",
@@ -1949,7 +1949,7 @@
               ]
             },
             {
-              "name": "POST /document-render - Missing assetID header",
+              "name": "POST document-render - Missing assetID header",
               "event": [
                 {
                   "listen": "test",
@@ -2079,7 +2079,7 @@
               ]
             },
             {
-              "name": "POST /document-render - Missing templateName header",
+              "name": "POST document-render - Missing templateName header",
               "event": [
                 {
                   "listen": "test",
@@ -2216,7 +2216,7 @@
               ]
             },
             {
-              "name": "POST /document-render - Malformed JSON body",
+              "name": "POST document-render - Malformed JSON body",
               "event": [
                 {
                   "listen": "test",
