@@ -1,0 +1,424 @@
+{
+  "info": {
+    "_postman_id": "3f140688-b2af-4680-b611-024eed3c27ab",
+    "name": "document.api.ch.gov.uk (Go)",
+    "description": "Obtained from Lead Test Engineer (Team Thundercats).\n\n## Authorization\nAuth for the document API is the same API key as `api_key_value` but base64 encoded in the format: `\"Basic \" + base64(key)`.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "healthcheck",
+      "id": "47880015-2e9d-4d62-b6c4-9cf17048ad24",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{doc_api_base_url}}/healthcheck",
+          "host": [
+            "{{doc_api_base_url}}"
+          ],
+          "path": [
+            "healthcheck"
+          ]
+        },
+        "description": "# Healthcheck\nDoesn't require authentication."
+      },
+      "response": []
+    },
+    {
+      "name": "document",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              "const uuid = require('uuid');",
+              "const transaction_id = uuid.v4();",
+              "pm.environment.set('transaction_id', transaction_id);",
+              "console.log(\"Transaction ID generated: \" + transaction_id);"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {},
+            "id": "9813212d-5768-45a3-ab14-678037db2488"
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "const responseBody = pm.response.json();",
+              "const document_id = responseBody.document_id;",
+              "pm.environment.set('document_id', document_id);",
+              "console.log(\"Document ID received:\" + document_id);",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {},
+            "id": "da5d3f9a-7457-4f70-85ae-e7fdb685b58e"
+          }
+        }
+      ],
+      "id": "82ec70cd-00ea-4213-89e7-0400f2f7f9e0",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    // --- REQUIRED ---\n    // Category options: [accounts, registered-office-change, officers, \n    // annual-returns, new-companies, miscellaneous, capital, liquidations,\n\t// changes-of-name, constitutional, mortgages]\n    \"category\": \"accounts\",\n\n    // Company number\n    \"company_number\": \"00006400\",\n\n    // The script generates a random transaction ID\n    \"transaction_id\": \"{{transaction_id}}\"\n\n    // --- OPTIONAL ---\n    // \"stored_image_url\": \"s3://document-api-images-cidev/9616660824.tiff\"\n    // \"barcode\": \"\",\n    // \"significant_date\": \"\",\n    // \"significant_date_type\": \"\",\n    // \"pages\": 0,\n    // \"filename\": \"\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{doc_api_base_url}}/document",
+          "host": [
+            "{{doc_api_base_url}}"
+          ],
+          "path": [
+            "document"
+          ]
+        },
+        "description": "# Create document\nThis endpoint requires a JSON body consisting of at least a category, company number, and transaction ID. It returns a document ID as its response. The transaction ID used in the request is generated in the pre-request script. The post-request script stores the generated document ID in the environment for the subsequent endpoints."
+      },
+      "response": []
+    },
+    {
+      "name": "document (with TIFF)",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              "const uuid = require('uuid');",
+              "const transaction_id = uuid.v4();",
+              "pm.environment.set('transaction_id', transaction_id);",
+              "console.log(\"Transaction ID generated: \" + transaction_id);"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {},
+            "id": "681be602-a05d-4380-b12c-6fb76742deae"
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "const responseBody = pm.response.json();",
+              "const document_id = responseBody.document_id;",
+              "pm.environment.set('document_id', document_id);",
+              "console.log(\"Document ID received:\" + document_id);",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {},
+            "id": "89b0059b-e262-455d-8a4e-0a2271635060"
+          }
+        }
+      ],
+      "id": "34c1be02-e73e-4f4a-b133-7a9fbfc564b7",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "No-Deletion",
+            "value": "true",
+            "description": "Prevents deletion of the source image",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    // --- REQUIRED ---\n    // Category options: [accounts, registered-office-change, officers, \n    // annual-returns, new-companies, miscellaneous, capital, liquidations,\n\t// changes-of-name, constitutional, mortgages]\n    \"category\": \"accounts\",\n\n    // Company number\n    \"company_number\": \"00006400\",\n\n    // The script generates a random transaction ID\n    \"transaction_id\": \"{{transaction_id}}\",\n\n    // --- OPTIONAL ---\n    \"stored_image_url\": \"{{tiff_stored_image_url}}\"\n    // \"barcode\": \"\",\n    // \"significant_date\": \"\",\n    // \"significant_date_type\": \"\",\n    // \"pages\": 0,\n    // \"filename\": \"\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{doc_api_base_url}}/document",
+          "host": [
+            "{{doc_api_base_url}}"
+          ],
+          "path": [
+            "document"
+          ]
+        },
+        "description": "# Create document with TIFF\nThis does the same as the `POST document` above, but adds an additional field to the request body `stored_image_url` which points to a TIFF in the `document-api-images-cidev` S3 bucket. When you send the request, the TIFF will be downloaded and converted to a PDF for storage. When you perform a `GET document content by id` you will see the converted PDF.\n\nTIFF is the only Content-Type that gets converted to PDF. XHTML for example is stored and retrieved as-is.\n\nThe `No-Deletion` header has been set on this request. Without this the source image (TIFF) will be deleted after being processed. `No-Deletion` having any value at all will prevent this."
+      },
+      "response": []
+    },
+    {
+      "name": "document (with XHTML)",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              "const uuid = require('uuid');",
+              "const transaction_id = uuid.v4();",
+              "pm.environment.set('transaction_id', transaction_id);",
+              "console.log(\"Transaction ID generated: \" + transaction_id);"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {},
+            "id": "0ca07143-f1ab-46ed-be8b-36c07bc16b2f"
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "const responseBody = pm.response.json();",
+              "const document_id = responseBody.document_id;",
+              "pm.environment.set('document_id', document_id);",
+              "console.log(\"Document ID received:\" + document_id);",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {},
+            "id": "93a2a993-c6a0-4dbe-8d0f-c975f1059131"
+          }
+        }
+      ],
+      "id": "26fe176a-69a9-49ad-9107-63b780a5f7a8",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "No-Deletion",
+            "value": "true",
+            "description": "Prevents deletion of the source image",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    // --- REQUIRED ---\n    // Category options: [accounts, registered-office-change, officers, \n    // annual-returns, new-companies, miscellaneous, capital, liquidations,\n\t// changes-of-name, constitutional, mortgages]\n    \"category\": \"accounts\",\n\n    // Company number\n    \"company_number\": \"00006400\",\n\n    // The script generates a random transaction ID\n    \"transaction_id\": \"{{transaction_id}}\",\n\n    // --- OPTIONAL ---\n    \"stored_image_url\": \"s3://document-api-images-cidev/9616709821.xhtml\"\n    // \"barcode\": \"\",\n    // \"significant_date\": \"\",\n    // \"significant_date_type\": \"\",\n    // \"pages\": 0,\n    // \"filename\": \"\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{doc_api_base_url}}/document",
+          "host": [
+            "{{doc_api_base_url}}"
+          ],
+          "path": [
+            "document"
+          ]
+        },
+        "description": "# Create document with TIFF\nThis does the same as the `POST document` above, but adds an additional field to the request body `stored_image_url` which points to an XHTML file in the `document-api-images-cidev` S3 bucket. When you later perform a `GET document content by id` you will see the submitted XTHML file.\n\nThe `No-Deletion` header has been set on this request. Without this the source image (TIFF) will be deleted after being processed. `No-Deletion` having any value at all will prevent this."
+      },
+      "response": []
+    },
+    {
+      "name": "search document",
+      "id": "89ef7407-72d7-4d83-964e-e6969cf23300",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{doc_api_base_url}}/search/document/?transaction_id={{transaction_id}}",
+          "host": [
+            "{{doc_api_base_url}}"
+          ],
+          "path": [
+            "search",
+            "document",
+            ""
+          ],
+          "query": [
+            {
+              "key": "transaction_id",
+              "value": "{{transaction_id}}"
+            }
+          ]
+        },
+        "description": "# Search document(s)\nThis endpoint searches for a document given a transaction ID. It may return multiple documents if there are more than one against the transaction."
+      },
+      "response": []
+    },
+    {
+      "name": "document metadata by id",
+      "id": "fff0addc-f529-45c4-8e66-ff725e8ee7a5",
+      "protocolProfileBehavior": {
+        "disabledSystemHeaders": {},
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/pdf",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "url": {
+          "raw": "{{doc_api_base_url}}/document/{{document_id}}",
+          "host": [
+            "{{doc_api_base_url}}"
+          ],
+          "path": [
+            "document",
+            "{{document_id}}"
+          ]
+        },
+        "description": "# Get document metadata\nThis endpoint returns all metadata associated with a document."
+      },
+      "response": []
+    },
+    {
+      "name": "document content by id (PDF)",
+      "id": "cf879fb6-b0b3-4807-aa27-43c133c3b6f4",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "file",
+          "file": {
+            "src": "postman-cloud:///1f138110-eb5c-48f0-b007-b851ec124dd7"
+          }
+        },
+        "url": {
+          "raw": "{{doc_api_base_url}}/document/{{document_id}}/content",
+          "host": [
+            "{{doc_api_base_url}}"
+          ],
+          "path": [
+            "document",
+            "{{document_id}}",
+            "content"
+          ]
+        },
+        "description": "# Upload document content\n\nThis endpoint is used to upload content to an existing document, the possible content types are as follows:\n\n| **Content-Type** | **Extension** |\n| --- | --- |\n| application/pdf | pdf |\n| application/xml | xml |\n| application/ixbrl | xhtml |\n| application/xhtml+xml | xhtml |\n| application/json | json |\n| application/zip | zip |\n| text/csv | csv |\n\nThis request uploads a PSC01 PDF."
+      },
+      "response": []
+    },
+    {
+      "name": "document content by id (ZIP)",
+      "id": "b601e5ad-e670-430e-b665-3eeeae77e5eb",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "file",
+          "file": {
+            "src": "postman-cloud:///1f138110-eb5c-48f0-b007-b851ec124dd7"
+          }
+        },
+        "url": {
+          "raw": "{{doc_api_base_url}}/document/{{document_id}}/content",
+          "host": [
+            "{{doc_api_base_url}}"
+          ],
+          "path": [
+            "document",
+            "{{document_id}}",
+            "content"
+          ]
+        },
+        "description": "# Upload document content\n\nThis endpoint is used to upload content to an existing document, the possible content types are as follows:\n\n| **Content-Type** | **Extension** |\n| --- | --- |\n| application/pdf | pdf |\n| application/xml | xml |\n| application/ixbrl | xhtml |\n| application/xhtml+xml | xhtml |\n| application/json | json |\n| application/zip | zip |\n| text/csv | csv |\n\nThis request uploads a ZIP file that contains a PSC01 PDF."
+      },
+      "response": []
+    },
+    {
+      "name": "document content by id",
+      "id": "729f66f3-9371-46f2-9d2a-94bef2c493c6",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{doc_api_base_url}}/document/{{document_id}}/content",
+          "host": [
+            "{{doc_api_base_url}}"
+          ],
+          "path": [
+            "document",
+            "{{document_id}}",
+            "content"
+          ]
+        },
+        "description": "# Get document content\nThis endpoint gets the content (see POST endpoint for possible content types) associated with a document."
+      },
+      "response": []
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "value",
+        "value": "{{doc_api_key}}",
+        "type": "string"
+      },
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ],
+        "id": "8cec0df6-4d5b-48d2-b764-3626fb8c6ed0"
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ],
+        "id": "97b8a1d5-7abb-4cc4-b27b-d566bc36ab0c"
+      }
+    }
+  ]
+}
