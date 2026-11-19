@@ -1,0 +1,24 @@
+{
+  "name": "Staging (Backend)",
+  "values": [
+    {
+      "key": "api_key",
+      "value": "{{vault:staging_api_key_value}}",
+      "enabled": true,
+      "type": "secret"
+    },
+    {
+      "key": "base_url",
+      "value": "https://internal-alb-staging-back-document-api-1021043754.eu-west-2.elb.amazonaws.com",
+      "enabled": true,
+      "type": "default"
+    },
+    {
+      "key": "source_bucket",
+      "value": "ch-document-api-chips-staging",
+      "enabled": true,
+      "type": "default"
+    }
+  ],
+  "_postman_variable_scope": "environment"
+}
