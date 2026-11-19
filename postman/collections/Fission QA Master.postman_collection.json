@@ -2493,6 +2493,9 @@
         {
           "name": "POST /orders/{ID}/reprocess",
           "id": "8d01e0f9-d8ef-4b98-b905-6757de6dc9f2",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
             "auth": {
               "type": "noauth"
@@ -2506,9 +2509,9 @@
               }
             ],
             "url": {
-              "raw": "{{base_url}}/orders/{{order_id}}/reprocess",
+              "raw": "{{api_base_url}}/orders/{{order_id}}/reprocess",
               "host": [
-                "{{base_url}}"
+                "{{api_base_url}}"
               ],
               "path": [
                 "orders",
