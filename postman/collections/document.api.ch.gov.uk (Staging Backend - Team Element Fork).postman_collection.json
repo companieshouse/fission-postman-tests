@@ -1,0 +1,195 @@
+{
+  "info": {
+    "_postman_id": "a5f958e3-b3dd-4949-a244-bb9878fc8843",
+    "name": "document.api.ch.gov.uk (Staging Backend - Team Element Fork)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "fork": {
+      "label": "Fork",
+      "createdAt": "2025-03-27T10:34:56.000Z",
+      "from": "26141998-467d0a7b-16fe-4bb8-b328-fad971e18d7a"
+    }
+  },
+  "item": [
+    {
+      "name": "HealthCheck",
+      "id": "c79d765a-6e52-414b-8833-ef959341fddb",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    },
+    {
+      "name": "/document/{document_id}",
+      "id": "74c955e8-542e-4f72-ae65-4145f3fcb300",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    },
+    {
+      "name": "/document/{document_id}/content",
+      "id": "52caa196-9c72-449c-8080-94997e625dde",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    },
+    {
+      "name": "search/document/",
+      "id": "31410819-6c5b-4903-87da-a2e54319f4c3",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    },
+    {
+      "name": "document Upload",
+      "id": "e227560c-cc56-4848-bd0d-c632dc7c64d2",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true,
+        "disabledSystemHeaders": {
+          "content-type": true
+        }
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "{{basic_authorization}}"
+          },
+          {
+            "key": "No-Deletion",
+            "value": "1",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"transaction_id\": \"87658021\",\n    \"company_number\": \"00006400\",\n\t\"barcode\": \"XCBJBTQW\",\n\t\"category\": \"registered-office-change\",\n    \"filename\": \"9616659744\",\n    \"stored_image_url\": \"s3://document-api-chips-cidev/9621459756.pdf\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://backend-document-api.cidev.aws.chdev.org/document",
+          "protocol": "https",
+          "host": [
+            "backend-document-api",
+            "cidev",
+            "aws",
+            "chdev",
+            "org"
+          ],
+          "path": [
+            "document"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "document/{document_id}/content",
+      "id": "d964587e-abad-420c-8179-5dc3070403d6",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/pdf"
+          },
+          {
+            "key": "Authorization",
+            "value": "{{basic_authorization}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"transaction_id\": \"87654321\",\n    \"company_number\": \"00006400\",\n\t\"barcode\": \"XAW22E8A\",\n\t\"category\": \"registered-office-change\",\n    \"filename\": \"the ocean\",\n    \"stored_image_url\": \"s3://ch-doc-api-temp/9616992643.pdf\"\n}",
+          "options": {
+            "raw": {
+              "language": "text"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://backend-document-api.cidev.aws.chdev.org/document/EKuc5IycXlyEVMuwaWdouOVccEVv1mlxAUV4eQWm-aE/content",
+          "protocol": "https",
+          "host": [
+            "backend-document-api",
+            "cidev",
+            "aws",
+            "chdev",
+            "org"
+          ],
+          "path": [
+            "document",
+            "EKuc5IycXlyEVMuwaWdouOVccEVv1mlxAUV4eQWm-aE",
+            "content"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{api_key}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "0d59e788-7972-479d-a282-f36842c27880",
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "0564b199-27da-434d-8220-952a53066c95",
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ]
+}
