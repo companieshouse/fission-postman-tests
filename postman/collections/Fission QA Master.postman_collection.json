@@ -3757,22 +3757,68 @@
     },
     {
       "name": "document.api.ch.gov.uk",
+      "auth": {
+        "type": "basic",
+        "basic": [
+          {
+            "key": "username",
+            "value": "{{api_key}}",
+            "type": "string"
+          }
+        ]
+      },
+      "variable": [
+        {
+          "key": "document_id",
+          "value": ""
+        },
+        {
+          "key": "transaction_id",
+          "value": ""
+        },
+        {
+          "key": "pdf_content_file",
+          "value": "{{document-api-test.tif.pdf}}"
+        },
+        {
+          "key": "xml_content_file",
+          "value": "{{content-file.xml}}"
+        },
+        {
+          "key": "xml_content_file_invalid",
+          "value": "{{content-file-invalid.xml}}"
+        },
+        {
+          "key": "xhtml_content_file",
+          "value": "{{content-file.xhtml}}"
+        },
+        {
+          "key": "json_content_file",
+          "value": "{{content-file.json}}"
+        },
+        {
+          "key": "zip_content_file",
+          "value": "{{content-file.zip}}"
+        },
+        {
+          "key": "csv_content_file",
+          "value": "{{content-file.csv}}"
+        }
+      ],
       "item": [
         {
           "name": "Health Check",
           "id": "7d9df977-7176-4f04-bb54-63569406a3e5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "https://backend-document-api.cidev.aws.chdev.org/healthcheck",
-              "protocol": "https",
+              "raw": "{{base_url}}/healthcheck",
               "host": [
-                "backend-document-api",
-                "cidev",
-                "aws",
-                "chdev",
-                "org"
+                "{{base_url}}"
               ],
               "path": [
                 "healthcheck"
@@ -3801,6 +3847,9 @@
             }
           ],
           "id": "1073d29b-0e7d-45e2-bf9f-ed6853c05441",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
             "method": "POST",
             "header": [
@@ -3815,7 +3864,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"transaction_id\": \"87658021-{{$timestamp}}\",\n    \"company_number\": \"00006400\",\n    \"barcode\": \"XCBJBTQW\",\n    \"category\": \"registered-office-change\",\n    \"filename\": \"pdf-valid\",\n    \"stored_image_url\": \"s3://document-api-chips-cidev/pdf-valid.pdf\"\n}",
+              "raw": "{\n    \"transaction_id\": \"87658021-{{$timestamp}}\",\n    \"company_number\": \"00006400\",\n    \"barcode\": \"XCBJBTQW\",\n    \"category\": \"registered-office-change\",\n    \"filename\": \"pdf-valid\",\n    \"stored_image_url\": \"s3://{{source_bucket}}/pdf-valid.pdf\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -3823,14 +3872,9 @@
               }
             },
             "url": {
-              "raw": "https://backend-document-api.cidev.aws.chdev.org/document",
-              "protocol": "https",
+              "raw": "{{base_url}}/document",
               "host": [
-                "backend-document-api",
-                "cidev",
-                "aws",
-                "chdev",
-                "org"
+                "{{base_url}}"
               ],
               "path": [
                 "document"
@@ -3901,6 +3945,9 @@
             }
           ],
           "id": "f56f0e8e-812e-4ce5-8338-3a30acf57c60",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
             "method": "POST",
             "header": [
@@ -3915,7 +3962,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"transaction_id\": \"87658022-{{$timestamp}}\",\n    \"company_number\": \"00006400\",\n    \"barcode\": \"XCBJBTQW\",\n    \"category\": \"registered-office-change\",\n    \"filename\": \"pdf-corrupted\",\n    \"stored_image_url\": \"s3://document-api-chips-cidev/pdf-corrupted.pdf\"\n}",
+              "raw": "{\n    \"transaction_id\": \"87658022-{{$timestamp}}\",\n    \"company_number\": \"00006400\",\n    \"barcode\": \"XCBJBTQW\",\n    \"category\": \"registered-office-change\",\n    \"filename\": \"pdf-corrupted\",\n    \"stored_image_url\": \"s3://{{source_bucket}}/pdf-corrupted.pdf\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -3923,14 +3970,9 @@
               }
             },
             "url": {
-              "raw": "https://backend-document-api.cidev.aws.chdev.org/document",
-              "protocol": "https",
+              "raw": "{{base_url}}/document",
               "host": [
-                "backend-document-api",
-                "cidev",
-                "aws",
-                "chdev",
-                "org"
+                "{{base_url}}"
               ],
               "path": [
                 "document"
@@ -3957,6 +3999,9 @@
             }
           ],
           "id": "c2f63f7c-e112-4fe1-8c53-689b723fe1ad",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
             "method": "POST",
             "header": [
@@ -3971,7 +4016,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"transaction_id\": \"45678902-{{$timestamp}}\",\n    \"company_number\": \"12801234\",\n    \"barcode\": \"NEWTESTG\",\n    \"category\": \"registered-office-change\",\n    \"filename\": \"document-api-test\",\n    \"stored_image_url\": \"s3://document-api-chips-cidev/document-api-test.tif\"\n}",
+              "raw": "{\n    \"transaction_id\": \"45678902-{{$timestamp}}\",\n    \"company_number\": \"12801234\",\n    \"barcode\": \"NEWTESTG\",\n    \"category\": \"registered-office-change\",\n    \"filename\": \"document-api-test\",\n    \"stored_image_url\": \"s3://{{source_bucket}}/document-api-test.tif\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -3979,14 +4024,9 @@
               }
             },
             "url": {
-              "raw": "https://backend-document-api.cidev.aws.chdev.org/document",
-              "protocol": "https",
+              "raw": "{{base_url}}/document",
               "host": [
-                "backend-document-api",
-                "cidev",
-                "aws",
-                "chdev",
-                "org"
+                "{{base_url}}"
               ],
               "path": [
                 "document"
@@ -4012,18 +4052,16 @@
             }
           ],
           "id": "82fa4d3a-1f24-426d-b244-8cfc3c98263c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "https://backend-document-api.cidev.aws.chdev.org/document/:document_id",
-              "protocol": "https",
+              "raw": "{{base_url}}/document/:document_id",
               "host": [
-                "backend-document-api",
-                "cidev",
-                "aws",
-                "chdev",
-                "org"
+                "{{base_url}}"
               ],
               "path": [
                 "document",
@@ -4056,18 +4094,16 @@
             }
           ],
           "id": "eac7f372-9505-4ea5-abe4-2b5312bcc783",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "https://backend-document-api.cidev.aws.chdev.org/document/:document_id/content",
-              "protocol": "https",
+              "raw": "{{base_url}}/document/:document_id/content",
               "host": [
-                "backend-document-api",
-                "cidev",
-                "aws",
-                "chdev",
-                "org"
+                "{{base_url}}"
               ],
               "path": [
                 "document",
@@ -4117,6 +4153,9 @@
             }
           ],
           "id": "2de0e67e-da05-4115-8869-49656c0354c4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
             "method": "POST",
             "header": [
@@ -4127,17 +4166,14 @@
             ],
             "body": {
               "mode": "file",
-              "file": {}
+              "file": {
+                "src": "{{pdf_content_file}}"
+              }
             },
             "url": {
-              "raw": "https://backend-document-api.cidev.aws.chdev.org/document/:document_id/content",
-              "protocol": "https",
+              "raw": "{{base_url}}/document/:document_id/content",
               "host": [
-                "backend-document-api",
-                "cidev",
-                "aws",
-                "chdev",
-                "org"
+                "{{base_url}}"
               ],
               "path": [
                 "document",
@@ -4185,6 +4221,9 @@
             }
           ],
           "id": "3130ebe5-5bdd-4ead-97f4-8ced7f3f146b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
             "method": "POST",
             "header": [
@@ -4195,7 +4234,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"transaction_id\": \"87654321\",\n    \"company_number\": \"00006400\",\n    \"barcode\": \"XAW22E8B\",\n    \"category\": \"registered-office-change\",\n    \"filename\": \"09023451\",\n    \"stored_image_url\": \"s3://document-api-chips-cidev/09023451.tiff\"\n}",
+              "raw": "{\n    \"transaction_id\": \"87654321\",\n    \"company_number\": \"00006400\",\n    \"barcode\": \"XAW22E8B\",\n    \"category\": \"registered-office-change\",\n    \"filename\": \"09023451\",\n    \"stored_image_url\": \"s3://{{source_bucket}}/09023451.tiff\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -4203,14 +4242,9 @@
               }
             },
             "url": {
-              "raw": "https://backend-document-api.cidev.aws.chdev.org/document/:document_id/content",
-              "protocol": "https",
+              "raw": "{{base_url}}/document/:document_id/content",
               "host": [
-                "backend-document-api",
-                "cidev",
-                "aws",
-                "chdev",
-                "org"
+                "{{base_url}}"
               ],
               "path": [
                 "document",
@@ -4228,7 +4262,7 @@
           "response": []
         },
         {
-          "name": "/document/{document_id}/content (IXBRL)",
+          "name": "/document/{document_id}/content (XML)",
           "event": [
             {
               "listen": "prerequest",
@@ -4260,6 +4294,9 @@
             }
           ],
           "id": "257775ea-7e5f-4ddd-844b-e182c2a7e7a7",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
             "method": "POST",
             "header": [
@@ -4270,17 +4307,14 @@
             ],
             "body": {
               "mode": "file",
-              "file": {}
+              "file": {
+                "src": "{{xml_content_file}}"
+              }
             },
             "url": {
-              "raw": "https://backend-document-api.cidev.aws.chdev.org/document/:document_id/content",
-              "protocol": "https",
+              "raw": "{{base_url}}/document/:document_id/content",
               "host": [
-                "backend-document-api",
-                "cidev",
-                "aws",
-                "chdev",
-                "org"
+                "{{base_url}}"
               ],
               "path": [
                 "document",
@@ -4330,6 +4364,9 @@
             }
           ],
           "id": "be316061-2b09-4f2c-b081-d462ce192d91",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
             "method": "POST",
             "header": [
@@ -4340,17 +4377,14 @@
             ],
             "body": {
               "mode": "file",
-              "file": {}
+              "file": {
+                "src": "{{xml_content_file_invalid}}"
+              }
             },
             "url": {
-              "raw": "https://backend-document-api.cidev.aws.chdev.org/document/:document_id/content",
-              "protocol": "https",
+              "raw": "{{base_url}}/document/:document_id/content",
               "host": [
-                "backend-document-api",
-                "cidev",
-                "aws",
-                "chdev",
-                "org"
+                "{{base_url}}"
               ],
               "path": [
                 "document",
@@ -4400,6 +4434,9 @@
             }
           ],
           "id": "ea16d5ed-4d4e-48a7-86f0-5a1704f3684d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
             "method": "POST",
             "header": [
@@ -4410,17 +4447,14 @@
             ],
             "body": {
               "mode": "file",
-              "file": {}
+              "file": {
+                "src": "{{xhtml_content_file}}"
+              }
             },
             "url": {
-              "raw": "https://backend-document-api.cidev.aws.chdev.org/document/:document_id/content",
-              "protocol": "https",
+              "raw": "{{base_url}}/document/:document_id/content",
               "host": [
-                "backend-document-api",
-                "cidev",
-                "aws",
-                "chdev",
-                "org"
+                "{{base_url}}"
               ],
               "path": [
                 "document",
@@ -4470,6 +4504,9 @@
             }
           ],
           "id": "796006c3-f1c2-4323-9222-8320f57b7526",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
             "method": "POST",
             "header": [
@@ -4480,17 +4517,14 @@
             ],
             "body": {
               "mode": "file",
-              "file": {}
+              "file": {
+                "src": "{{xhtml_content_file}}"
+              }
             },
             "url": {
-              "raw": "https://backend-document-api.cidev.aws.chdev.org/document/:document_id/content",
-              "protocol": "https",
+              "raw": "{{base_url}}/document/:document_id/content",
               "host": [
-                "backend-document-api",
-                "cidev",
-                "aws",
-                "chdev",
-                "org"
+                "{{base_url}}"
               ],
               "path": [
                 "document",
@@ -4540,6 +4574,9 @@
             }
           ],
           "id": "60432e9b-907d-48bc-8d9d-67382c39e3f4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
             "method": "POST",
             "header": [
@@ -4550,17 +4587,14 @@
             ],
             "body": {
               "mode": "file",
-              "file": {}
+              "file": {
+                "src": "{{json_content_file}}"
+              }
             },
             "url": {
-              "raw": "https://backend-document-api.cidev.aws.chdev.org/document/:document_id/content",
-              "protocol": "https",
+              "raw": "{{base_url}}/document/:document_id/content",
               "host": [
-                "backend-document-api",
-                "cidev",
-                "aws",
-                "chdev",
-                "org"
+                "{{base_url}}"
               ],
               "path": [
                 "document",
@@ -4610,6 +4644,9 @@
             }
           ],
           "id": "1874c086-a8fe-475d-98a5-4d63d7c0fc58",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
             "method": "POST",
             "header": [
@@ -4620,17 +4657,14 @@
             ],
             "body": {
               "mode": "file",
-              "file": {}
+              "file": {
+                "src": "{{zip_content_file}}"
+              }
             },
             "url": {
-              "raw": "https://backend-document-api.cidev.aws.chdev.org/document/:document_id/content",
-              "protocol": "https",
+              "raw": "{{base_url}}/document/:document_id/content",
               "host": [
-                "backend-document-api",
-                "cidev",
-                "aws",
-                "chdev",
-                "org"
+                "{{base_url}}"
               ],
               "path": [
                 "document",
@@ -4680,6 +4714,9 @@
             }
           ],
           "id": "9e924b39-070a-4191-b798-f92cf2b11a5a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
             "method": "POST",
             "header": [
@@ -4690,17 +4727,14 @@
             ],
             "body": {
               "mode": "file",
-              "file": {}
+              "file": {
+                "src": "{{csv_content_file}}"
+              }
             },
             "url": {
-              "raw": "https://backend-document-api.cidev.aws.chdev.org/document/:document_id/content",
-              "protocol": "https",
+              "raw": "{{base_url}}/document/:document_id/content",
               "host": [
-                "backend-document-api",
-                "cidev",
-                "aws",
-                "chdev",
-                "org"
+                "{{base_url}}"
               ],
               "path": [
                 "document",
@@ -4746,6 +4780,9 @@
             }
           ],
           "id": "e0dcd5af-a2d8-49f2-a3c6-d8f4baf351ca",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
             "auth": {
               "type": "noauth"
@@ -4753,14 +4790,9 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "https://backend-document-api.cidev.aws.chdev.org/document/:document_id",
-              "protocol": "https",
+              "raw": "{{base_url}}/document/:document_id",
               "host": [
-                "backend-document-api",
-                "cidev",
-                "aws",
-                "chdev",
-                "org"
+                "{{base_url}}"
               ],
               "path": [
                 "document",
@@ -4793,18 +4825,16 @@
             }
           ],
           "id": "f71f2097-8af3-466c-9cf1-baab379ef2dd",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "https://backend-document-api.cidev.aws.chdev.org/document/this-document-id-does-not-exist",
-              "protocol": "https",
+              "raw": "{{base_url}}/document/this-document-id-does-not-exist",
               "host": [
-                "backend-document-api",
-                "cidev",
-                "aws",
-                "chdev",
-                "org"
+                "{{base_url}}"
               ],
               "path": [
                 "document",
@@ -4843,6 +4873,9 @@
             }
           ],
           "id": "97d5e22b-e398-44af-a638-8186138615d9",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
             "method": "GET",
             "header": [
@@ -4852,14 +4885,9 @@
               }
             ],
             "url": {
-              "raw": "https://backend-document-api.cidev.aws.chdev.org/document/:document_id/content",
-              "protocol": "https",
+              "raw": "{{base_url}}/document/:document_id/content",
               "host": [
-                "backend-document-api",
-                "cidev",
-                "aws",
-                "chdev",
-                "org"
+                "{{base_url}}"
               ],
               "path": [
                 "document",
@@ -4893,6 +4921,9 @@
             }
           ],
           "id": "5994dfec-9c3d-4670-ab70-e6bce507f74d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
             "method": "GET",
             "header": [
@@ -4902,14 +4933,9 @@
               }
             ],
             "url": {
-              "raw": "https://backend-document-api.cidev.aws.chdev.org/document/:document_id/content",
-              "protocol": "https",
+              "raw": "{{base_url}}/document/:document_id/content",
               "host": [
-                "backend-document-api",
-                "cidev",
-                "aws",
-                "chdev",
-                "org"
+                "{{base_url}}"
               ],
               "path": [
                 "document",
@@ -4943,6 +4969,9 @@
             }
           ],
           "id": "12d26941-d3fd-4042-9286-2a7d146a5de8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
             "method": "GET",
             "header": [
@@ -4952,14 +4981,9 @@
               }
             ],
             "url": {
-              "raw": "https://backend-document-api.cidev.aws.chdev.org/document/:document_id/content",
-              "protocol": "https",
+              "raw": "{{base_url}}/document/:document_id/content",
               "host": [
-                "backend-document-api",
-                "cidev",
-                "aws",
-                "chdev",
-                "org"
+                "{{base_url}}"
               ],
               "path": [
                 "document",
@@ -4993,6 +5017,9 @@
             }
           ],
           "id": "581a91f5-a5b6-4f81-b30f-ceea618c7e2c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
             "method": "GET",
             "header": [
@@ -5002,14 +5029,9 @@
               }
             ],
             "url": {
-              "raw": "https://backend-document-api.cidev.aws.chdev.org/document/:document_id/content",
-              "protocol": "https",
+              "raw": "{{base_url}}/document/:document_id/content",
               "host": [
-                "backend-document-api",
-                "cidev",
-                "aws",
-                "chdev",
-                "org"
+                "{{base_url}}"
               ],
               "path": [
                 "document",
@@ -5043,18 +5065,16 @@
             }
           ],
           "id": "61eae88a-7941-4e5f-b67b-e7a3156bafca",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "https://backend-document-api.cidev.aws.chdev.org/search/document/?transaction_id={{transaction_id}}",
-              "protocol": "https",
+              "raw": "{{base_url}}/search/document/?transaction_id={{transaction_id}}",
               "host": [
-                "backend-document-api",
-                "cidev",
-                "aws",
-                "chdev",
-                "org"
+                "{{base_url}}"
               ],
               "path": [
                 "search",
