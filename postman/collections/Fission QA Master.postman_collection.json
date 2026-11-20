@@ -913,6 +913,45 @@
           "response": []
         },
         {
+          "name": "api.chs.local/convert",
+          "id": "9b29170d-90ea-4c9d-b5af-6f8cf15d678c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/html",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<html>\n\n<head>\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\n    <meta charset=\"utf-8\" />\n    <meta content=\"IE=edge\" http-equiv=\"X-UA-Compatible\" />\n    <style>\n        body,\n        html {\n            margin: 0;\n            padding: 0;\n            font-family: \"SourceSansPro-Regular\";\n            font-size: 15pt;\n            background-color: #eee;\n        }\n\n        * {\n            box-sizing: border-box;\n            -moz-box-sizing: border-box;\n        }\n\n        .page {\n            background: #fff;\n            box-shadow: 0 4px 5px rgba(75, 75, 75, 0.2);\n            outline: 0;\n            width: 21cm;\n            min-height: 29.7cm;\n            padding: 2cm;\n        }\n\n        .memo-heading {\n            font-weight: bold;\n            font-size: 16pt;\n            text-align: center;\n            margin-bottom: 20pt;\n        }\n\n        .memo-heading1 {\n            margin-top: 0;\n            margin-bottom: 5pt;\n            font-size: 16pt;\n            text-align: center;\n            font-weight: bold;\n            text-align: center;\n            line-height: 0;\n        }\n\n        .memo-heading2 {\n            margin-top: 20pt;\n            margin-bottom: 20pt;\n            font-size: 16pt;\n            text-align: center;\n            font-weight: bold;\n        }\n\n        .memo-body {\n            margin-top: 20pt;\n            margin-bottom: 0;\n            font-size: 8pt;\n            line-height: 10pt;\n        }\n\n        .memo-date {\n            font-size: 12pt;\n            line-height: 10pt;\n        }\n\n        .wrapword {\n            word-wrap: break-word;\n        }\n\n        table {\n            page-break-inside: avoid;\n            font-size: 8pt;\n            border-spacing: 0;\n        }\n\n        tr.border_top th {\n            border-top: 1pt solid black;\n        }\n\n        tr.border_bottom th {\n            border-bottom: 1.5pt solid black;\n        }\n\n        tr.border_bottom td {\n            border-bottom: 1pt solid black;\n        }\n\n        .col1 {\n            width: 75%;\n            text-align: left;\n        }\n\n        .col2 {\n            width: 25%;\n            text-align: left;\n        }\n\n        @media print {\n\n            body,\n            html {\n                background-color: #fff;\n            }\n\n            .page {\n                width: 100%;\n                min-height: 100%;\n                margin: 0 !important;\n                padding: 0 !important;\n                border: initial !important;\n                border-radius: initial !important;\n                background: initial !important;\n                box-shadow: initial !important;\n            }\n        }\n\n        @page {\n            orphans: 2;\n            widows: 2;\n            size: A4 portrait;\n            padding: 1cm;\n        }\n    </style>\n</head>\n\n<body>\n    <div class=\"page\">\n        <div class=\"memo-heading\">\n            <p>COMPANY NOT HAVING A SHARE CAPITAL</p>\n        </div>\n        <div class=\"memo-heading1\">\n            <p>Memorandum of Association of</p>\n        </div>\n        <div class=\"memo-heading2 wrapword\">\n            <p>COMPANY DHHOJWYB3BBA0C7-6C13-42F3-9BB6-DE7C2DFE0E50 LIMITED</p>\n        </div>\n        <div class=\"memo-body\">\n            <p>Each subscriber to this memorandum of association wishes to form a company under the Companies Act 2006\n                and agrees to become a member of the company.</p>\n        </div>\n        <div>\n            <p>\n            <table border=\"0\" width=\"100%\">\n                <tr class=\"border_bottom border_top\">\n                    <th class=\"col1\">Name of each subscriber</th>\n                    <th class=\"col2\">Authentication</th>\n                </tr>\n                <tr>\n                    <td class=\"col1\">FORENAME SURNAME</td>\n                    <td class=\"col2\">Authenticated Electronically</td>\n                </tr>\n                <tr class=\"border_bottom\">\n                    <td class=\"col1\"></td>\n                    <td class=\"col2\"></td>\n                </tr>\n            </table>\n            </p>\n        </div>\n        <div class=\"memo-date\">\n            <p>Dated: 03/02/2026</p>\n        </div>\n    </div>\n</body>\n\n</html>",
+              "options": {
+                "raw": {
+                  "language": "html"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://api.chs.local/convert",
+              "protocol": "http",
+              "host": [
+                "api",
+                "chs",
+                "local"
+              ],
+              "path": [
+                "convert"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
           "name": "private-api.cidev.aws.chdev.org/document-render",
           "id": "8752b685-b1bd-44ab-ba00-175471a174f8",
           "request": {
