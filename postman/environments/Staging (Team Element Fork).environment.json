@@ -1,0 +1,90 @@
+{
+  "name": "Staging (Team Element Fork)",
+  "values": [
+    {
+      "key": "callback_url",
+      "value": "https://www.getpostman.com/oauth2/callback",
+      "enabled": true,
+      "type": "default"
+    },
+    {
+      "key": "auth_url",
+      "value": "http://account-staging-aws.companieshouse.gov.uk:4003/oauth2/authorise",
+      "enabled": true,
+      "type": "default"
+    },
+    {
+      "key": "access_token_url",
+      "value": "http://account-staging-aws.companieshouse.gov.uk",
+      "enabled": true,
+      "type": "default"
+    },
+    {
+      "key": "client_id",
+      "value": "http://1234567890.apps.ch.govuk",
+      "enabled": true,
+      "type": "default"
+    },
+    {
+      "key": "scope",
+      "value": "https://api.companieshouse.gov.uk/company/00006400",
+      "enabled": true,
+      "type": "default"
+    },
+    {
+      "key": "base_url",
+      "value": "https://api-staging.company-information.service.gov.uk",
+      "enabled": true,
+      "type": "default"
+    },
+    {
+      "key": "File-Transfer-ECS",
+      "value": "file-transfer-staging.companieshouse.gov.uk",
+      "enabled": true,
+      "type": "default"
+    },
+    {
+      "key": "Secure-File-Transfer-ECS",
+      "value": "secure-file-transfer-staging.companieshouse.gov.uk",
+      "enabled": true,
+      "type": "default"
+    },
+    {
+      "key": "Internal_API",
+      "value": "https://internal-api-staging.company-information.service.gov.uk/",
+      "enabled": true,
+      "type": "default"
+    },
+    {
+      "key": "api_key",
+      "value": "",
+      "enabled": true,
+      "type": "default"
+    },
+    {
+      "key": "Internal_API_http",
+      "value": "https://internal-api-staging.company-information.service.gov.uk",
+      "enabled": true,
+      "type": "default"
+    },
+    {
+      "key": "transaction_id",
+      "value": "",
+      "enabled": true,
+      "type": "any"
+    },
+    {
+      "key": "kakfa0.1_url",
+      "value": "",
+      "enabled": true,
+      "type": "default"
+    },
+    {
+      "key": "client_secret",
+      "value": "",
+      "enabled": true,
+      "type": "default"
+    }
+  ],
+  "_postman_variable_scope": "environment"
+}
