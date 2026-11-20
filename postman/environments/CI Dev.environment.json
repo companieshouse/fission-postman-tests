@@ -32,6 +32,12 @@
       "type": "secret"
     },
     {
+      "key": "api_key_value",
+      "value": "{{vault:cidev_api_key_value}}",
+      "enabled": true,
+      "type": "secret"
+    },
+    {
       "key": "order_id",
       "value": "ORD-633617-727875",
       "enabled": true,
