@@ -716,9 +716,9 @@
               }
             },
             "url": {
-              "raw": "{{base_url}}/convert",
+              "raw": "{{api_base_url}}/convert",
               "host": [
-                "{{base_url}}"
+                "{{api_base_url}}"
               ],
               "path": [
                 "convert"
